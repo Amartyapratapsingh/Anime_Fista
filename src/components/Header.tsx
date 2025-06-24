@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
             <div className="flex items-center space-x-3">
               <div className="relative">
                 <img 
-                  src="/ChatGPT Image Jun 16, 2025, 10_45_10 AM-Photoroom.png" 
+                  src="/anime-hero-logo.png" 
                   alt="Anime Fista Logo" 
                   className="h-14 w-14 rounded-full object-cover shadow-lg border-2 border-orange-300"
                   onError={(e) => {

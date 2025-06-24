@@ -236,7 +236,7 @@ const ParallaxHero: React.FC = () => {
                 
                 {/* Custom Image replacing AF Logo */}
                 <img 
-                  src="/ChatGPT Image Jun 16, 2025, 10_45_10 AM-Photoroom.png" 
+                  src="/anime-hero-logo.png" 
                   alt="Anime Fista Hero" 
                   className="w-72 h-72 rounded-full object-cover z-10 border-4 border-primary-300/50"
                   onError={(e) => {
