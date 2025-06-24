@@ -1,0 +1,18 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="orangeGradientSmall" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e63946;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="url(#orangeGradientSmall)" stroke="#ff8500" stroke-width="1"/>
+  
+  <!-- AF Text -->
+  <text x="16" y="20" text-anchor="middle" 
+        font-family="Arial Black, sans-serif" 
+        font-size="12" 
+        font-weight="900" 
+        fill="#1a1a1a">AF</text>
+</svg> 

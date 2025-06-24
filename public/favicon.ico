@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" fill="#000"/>
+  
+  <!-- Letter A (simplified) -->
+  <path d="M6 26 L6 10 L13 10 L19 26 L16 26 L14 21 L11 21 L9 26 Z M12 18 L13 18 L12.5 15 Z" 
+        fill="#00D4FF"/>
+  
+  <!-- Letter F (simplified) -->
+  <path d="M21 26 L21 10 L29 10 L29 13 L24 13 L24 16 L28 16 L28 19 L24 19 L24 26 Z" 
+        fill="#FF4757"/>
+  
+  <!-- Ninja (simplified) -->
+  <circle cx="16" cy="22" r="4" fill="#2C3E50"/>
+  <circle cx="16" cy="21" r="3" fill="#F4C2A1"/>
+  <rect x="15" y="23" width="2" height="1" fill="#2C3E50"/>
+  
+  <!-- Sword (simplified) -->
+  <rect x="18" y="8" width="1" height="10" fill="#C0C0C0"/>
+  <rect x="17" y="17" width="3" height="2" fill="#8B4513"/>
+</svg> 

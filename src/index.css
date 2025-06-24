@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Logo specific styles */
+.logo-circular {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 
+    0 0 20px rgba(255, 107, 53, 0.4),
+    0 0 40px rgba(255, 107, 53, 0.2),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
+}
+
+.logo-circular:hover {
+  box-shadow: 
+    0 0 30px rgba(255, 107, 53, 0.6),
+    0 0 60px rgba(255, 107, 53, 0.3),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 107, 53, 0.5);
+  transform: scale(1.05);
+}
+
+/* Loading screen logo enhancement */
+.logo-loading {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 
+    0 0 40px rgba(255, 107, 53, 0.5),
+    0 0 80px rgba(255, 107, 53, 0.3),
+    0 0 120px rgba(255, 107, 53, 0.1);
+  border: 4px solid rgba(255, 107, 53, 0.4);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3730a3;
+}
+
+/* Smooth transitions */
+* {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}

@@ -1,0 +1,66 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="orangeGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e63946;stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0077be;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003f7f;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e63946;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c5282f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#orangeGradient)" stroke="#ff8500" stroke-width="2"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="30" cy="40" r="8" fill="#ffb366" opacity="0.7"/>
+  <circle cx="170" cy="35" r="12" fill="#ffd23f" opacity="0.8"/>
+  <circle cx="25" cy="160" r="6" fill="#4ecdc4" opacity="0.6"/>
+  <circle cx="175" cy="170" r="5" fill="#ff6b6b" opacity="0.7"/>
+  
+  <!-- Main AF Text -->
+  <text x="100" y="120" text-anchor="middle" 
+        font-family="Arial Black, sans-serif" 
+        font-size="48" 
+        font-weight="900" 
+        fill="#1a1a1a">AF</text>
+  
+  <!-- Ninja character (simplified) -->
+  <g transform="translate(100, 140)">
+    <!-- Ninja head -->
+    <circle cx="0" cy="0" r="12" fill="#2c3e50"/>
+    <!-- Ninja mask -->
+    <rect x="-10" y="-2" width="20" height="8" fill="#34495e"/>
+    <!-- Eyes -->
+    <circle cx="-4" cy="-3" r="2" fill="#f39c12"/>
+    <circle cx="4" cy="-3" r="2" fill="#f39c12"/>
+  </g>
+  
+  <!-- Sword -->
+  <g transform="translate(130, 80) rotate(45)">
+    <!-- Blade -->
+    <rect x="0" y="-2" width="25" height="4" fill="#95a5a6"/>
+    <!-- Handle -->
+    <rect x="-8" y="-3" width="8" height="6" fill="#2c3e50"/>
+    <!-- Guard -->
+    <rect x="-2" y="-4" width="4" height="8" fill="#34495e"/>
+  </g>
+  
+  <!-- Floating petals/leaves -->
+  <ellipse cx="60" cy="70" rx="3" ry="6" fill="#e74c3c" opacity="0.7" transform="rotate(30 60 70)"/>
+  <ellipse cx="140" cy="60" rx="2" ry="5" fill="#e74c3c" opacity="0.6" transform="rotate(-20 140 60)"/>
+  <ellipse cx="50" cy="130" rx="2" ry="4" fill="#e74c3c" opacity="0.5" transform="rotate(60 50 130)"/>
+  
+  <!-- Speed lines/effects -->
+  <line x1="20" y1="100" x2="35" y2="100" stroke="#fff" stroke-width="2" opacity="0.6"/>
+  <line x1="15" y1="110" x2="30" y2="110" stroke="#fff" stroke-width="1.5" opacity="0.4"/>
+  <line x1="25" y1="90" x2="40" y2="90" stroke="#fff" stroke-width="1" opacity="0.3"/>
+</svg> 
