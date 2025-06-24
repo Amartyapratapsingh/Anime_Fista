@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, Plus, Play, Heart, BookOpen } from 'lucide-react';
 import { Anime, Manga } from '../types/anime';
 import AnimeImage from './AnimeImage';
+import { imageCache } from '../utils/imageCache';
 
 interface AnimeCardProps {
   item: Anime | Manga;
@@ -18,6 +19,26 @@ const AnimeCard: React.FC<AnimeCardProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
+  const [imagePreloaded, setImagePreloaded] = useState(false);
+
+  // Preload image to reduce hover delay
+  useEffect(() => {
+    // Check if image is already cached
+    if (imageCache.isImageCached(item.coverImage)) {
+      setImagePreloaded(true);
+      return;
+    }
+
+    // Preload image using cache
+    imageCache.preloadImage(item.coverImage)
+      .then(() => setImagePreloaded(true))
+      .catch(() => {
+        // Fallback to regular loading
+        const img = new Image();
+        img.src = item.coverImage;
+        img.onload = () => setImagePreloaded(true);
+      });
+  }, [item.coverImage]);
 
   const sizeClasses = {
     small: 'w-32 h-48',
@@ -33,19 +54,19 @@ const AnimeCard: React.FC<AnimeCardProps> = ({
 
   return (
     <div
-      className={`${sizeClasses[size]} relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10`}
+      className={`${sizeClasses[size]} relative group cursor-pointer transform transition-all duration-200 hover:scale-105 hover:z-10`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Main Card */}
-      <div className="relative h-full bg-dark-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:shadow-primary-400/20 transition-all duration-300">
+      <div className="relative h-full bg-dark-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:shadow-primary-400/20 transition-all duration-200">
         {/* Cover Image */}
         <div className="relative h-3/4 overflow-hidden">
           <AnimeImage
             src={item.coverImage}
             alt={item.title}
             title={item.title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-110"
           />
           
           {/* Gradient Overlay */}
@@ -108,14 +129,21 @@ const AnimeCard: React.FC<AnimeCardProps> = ({
 
       {/* Hover Card Extension */}
       {isHovered && size !== 'small' && (
-        <div className="absolute left-full top-0 ml-2 w-80 bg-dark-800 border border-dark-700 rounded-lg shadow-2xl z-20 p-4 animate-slide-in">
+        <div className="absolute left-full top-0 ml-2 w-80 bg-dark-800 border border-dark-700 rounded-lg shadow-2xl z-20 p-4 animate-slide-in opacity-0 animate-fade-in-fast">
           <div className="flex space-x-4">
-            <AnimeImage
-              src={item.coverImage}
-              alt={item.title}
-              title={item.title}
-              className="w-20 h-28 object-cover rounded-md flex-shrink-0"
-            />
+            <div className="w-20 h-28 rounded-md flex-shrink-0 bg-dark-700 overflow-hidden">
+              <img
+                src={item.coverImage}
+                alt={item.title}
+                className="w-full h-full object-cover"
+                style={{ display: imagePreloaded ? 'block' : 'none' }}
+              />
+              {!imagePreloaded && (
+                <div className="w-full h-full bg-gray-700 animate-pulse flex items-center justify-center">
+                  <span className="text-xs text-gray-400">Loading...</span>
+                </div>
+              )}
+            </div>
             <div className="flex-1">
               <h3 className="font-bold text-white mb-2">{item.title}</h3>
               <div className="flex items-center space-x-4 mb-2">

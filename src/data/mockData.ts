@@ -506,7 +506,7 @@ export const generateAnimeData = (): Anime[] => {
       id: i + 1,
       title: baseAnime.title + variation,
       englishTitle: baseAnime.englishTitle + variation,
-      coverImage: `https://images.pexels.com/photos/${1000000 + (i * 137) % 5000000}/pexels-photo-${1000000 + (i * 137) % 5000000}.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop`,
+      coverImage: getWorkingImageUrl(baseAnime.title, `https://picsum.photos/300/400?random=${i + 100}`),
       rating: Math.round((Math.random() * 4 + 6) * 10) / 10, // 6.0 - 10.0
       studio: studios[i % studios.length],
       type: types[i % types.length],
@@ -556,7 +556,7 @@ export const generateMangaData = (): Manga[] => {
       id: i + 1,
       title: baseMangaItem.title + variation,
       englishTitle: baseMangaItem.englishTitle + variation,
-      coverImage: `https://images.pexels.com/photos/${2000000 + (i * 173) % 3000000}/pexels-photo-${2000000 + (i * 173) % 3000000}.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop`,
+      coverImage: getWorkingImageUrl(baseMangaItem.title, `https://picsum.photos/300/400?random=${i + 500}`),
       rating: Math.round((Math.random() * 4 + 6) * 10) / 10,
       author: authors[i % authors.length],
       type: types[i % types.length],
